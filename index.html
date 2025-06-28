@@ -1,9 +1,138 @@
-<header>
-   <nav>
-     <ul>
-       <li><a href="index.html">Strona główna</a></li>
-       <li><a href="about.html">O nas</a></li>
-       <li><a href="contact.html">Kontakt</a></li>
-     </ul>
-   </nav>
-</header>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strona z losową treścią</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 1rem 0;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        nav ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav ul li a:hover {
+            color: #ffa500; /* Orange */
+        }
+
+        .main-content {
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .random-container {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+
+        #randomText {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #555;
+        }
+
+        .action-button {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 1rem;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .action-button:hover {
+            background-color: #0056b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+       <nav>
+         <ul>
+           <li><a href="index.html">Strona główna</a></li>
+           <li><a href="about.html">O nas</a></li>
+           <li><a href="contact.html">Kontakt</a></li>
+         </ul>
+       </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="random-container">
+            <p id="randomText">random content :)</p>
+            <button class="action-button" onclick="changeContent()">Zmień treść i kolor!</button>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Twoja Strona Internetowa</p>
+    </footer>
+
+    <script>
+        function changeContent() {
+            const textElement = document.getElementById('randomText');
+            const phrases = [
+                "random content :)",
+                "Witaj na mojej stronie!",
+                "Oto losowa treść.",
+                "JavaScript działa!",
+                "Miłego dnia!",
+                "Kliknij ponownie!",
+                "To jest interaktywne."
+            ];
+            const colors = ["#ff5733", "#33ff57", "#3357ff", "#ff33a1", "#a133ff", "#33ffa1", "#ff9a33"];
+
+            const randomPhrase = phrases[Math.floor(Math.random() * phrases.length)];
+            const randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+            textElement.textContent = randomPhrase;
+            textElement.style.color = randomColor;
+        }
+    </script>
+
+</body>
+</html>
+
